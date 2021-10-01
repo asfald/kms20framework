@@ -1,11 +1,7 @@
 <?php
 
 use App\Router;
+use App\Controller\HomeController;
 
-Router::get('/', function(){
-    echo "Home page";
-});
-
-Router::get('/about', function(){
-    echo "About us";
-});
+Router::get('/', [HomeController::class, 'index']
+Router::get('about', HomeController::class, 'about'(){
