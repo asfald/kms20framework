@@ -21,7 +21,7 @@ if($match != null && is_callable($match['action'])){
     $controller = new $class();
     $controller->$method();
 } else {
-    echo "404";
+    return false;
 }
 // switch($_SERVER['REQUEST_URI']){
 //     case '/':
