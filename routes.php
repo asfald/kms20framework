@@ -6,6 +6,8 @@ use App\Controller\PostController;
 
 
 Router::get('/', [HomeController::class, 'index']);
-Router::get('/about', [HomeController::class, 'about']);
-Router::get('/posts', [PostController::class, 'posts']);
+Router::post('/', [HomeController::class, 'index']);
+Router::get('/about', [PostController::class, 'about']);
+Router::get('/posts', [HomeController::class, 'posts']);
+
 

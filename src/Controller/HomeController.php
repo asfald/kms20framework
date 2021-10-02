@@ -3,7 +3,9 @@ namespace App\Controller;
 
 class HomeController {
     public function index(){
-        $name = "Rain";
+        var_dump($_GET);
+        var_dump($_POST);
+        $name = $_GET['name'] ?? 'Nimetu';
         view('index', compact('name'));   
      }
     
