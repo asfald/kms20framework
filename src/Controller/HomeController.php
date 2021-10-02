@@ -4,10 +4,11 @@ namespace App\Controller;
 class HomeController {
     public function index(){
         $name = "Rain";
-        require __DIR__ . '/../../views/index.php';
-    }
+        view('index', compact('name'));   
+     }
     
     public function about(){
+
         echo "About Us";
     }
 

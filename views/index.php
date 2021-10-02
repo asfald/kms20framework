@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Home Page!</h1>
-    <p style="color: blue;" >Tere minu nimi on <?=$name;?></p>
+    <p style="color:gold;" >Tere minu nimi on <?=$name;?></p>
 </body>
 </html>
