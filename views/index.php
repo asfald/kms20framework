@@ -5,18 +5,19 @@
 <form action="/" method="GET">
     <input type="text" placeholder="name" name="name">
     <input type="number" placeholder="Age" name="age">
-    <input type="submit" value="Get request">
+    <input type="submit" value="kysi">
 </form>
 
 <form action="/?name=Rain" method="POST">
     <input type="text" placeholder="name" name="name">
     <input type="number" placeholder="Age" name="age">
-    <input type="submit" value="Post request">
+    <input type="submit" value="anna">
 </form>
 
 <form action="/upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="image">
-    <input type="submit" value="upload">
+    <input type="submit" value="lae üles">
 </form>
+<img src="/pilt.jpg">
 
 <?php include __DIR__ . "/partials/footer.php" ?>
