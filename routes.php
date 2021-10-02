@@ -7,6 +7,7 @@ use App\Controller\PostController;
 
 Router::get('/', [HomeController::class, 'index']);
 Router::post('/', [HomeController::class, 'index']);
+Router::post('/upload', [HomeController::class, 'upload']);
 Router::get('/about', [PostController::class, 'about']);
 Router::get('/posts', [HomeController::class, 'posts']);
 

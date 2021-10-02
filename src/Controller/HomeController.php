@@ -14,6 +14,10 @@ class HomeController {
         view('about');
     }
 
+    public function upload(){
+        var_dump($_FILES);
+        move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/' . $_FILES['image']['name']);
+    }
 }
 
 //echo $hello ?? 'goodbye';
