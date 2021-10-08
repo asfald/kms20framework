@@ -1,13 +1,30 @@
 <?php
 namespace App\Controller;
 
+use App\Models\Article;
+use PDO;
+use PDOException;
+
 class HomeController {
     public function index(){
-        var_dump($_GET);
-        var_dump($_POST);
-        var_dump($_REQUEST);
-        $name = $_GET['name'] ?? 'Nimetu';
-        view('index', compact('name'));
+        try {
+            $conn = new PDO("sqlite:" . __DIR__ . '/../../database.sqlite');
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM articles");
+            $stmt->execute();
+
+            // set the resulting array to associative
+            $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
+            $results = $stmt->fetchAll();
+            var_dump( $results[0]->capitalizedTitle() );
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        //catch (\Exception $e) {
+//            echo "Some other issue";
+//        }
+//        throw new \Exception();
     }
     
     public function about(){
@@ -15,7 +32,7 @@ class HomeController {
     }
     
     public function upload(){
-        var_dump($_FILES);
         move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/'. $_FILES['image']['name']);
+        header('Location: /');
     }
 }
