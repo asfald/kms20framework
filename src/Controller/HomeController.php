@@ -1,12 +1,25 @@
 <?php
 namespace App\Controller;
 
+use App\Models\Article;
+use PDO;
+use PDOException;
+
 class HomeController {
     public function index(){
-        var_dump($_GET);
-        var_dump($_POST);
-        $name = $_GET['name'] ?? 'Nimetu';
-        view('index', compact('name'));   
+        try {
+            $conn = new PDO("sqlite:" . __DIR__ . '/../../database.sqlite');
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT id, title, body FROM articles");
+            $stmt->execute();
+             // * = select all, real 13 id title body asemel
+
+         $stmt->setFetchMode(PDO::FETCH_CLASS, Article::);
+         var_dump($stmt->fetchAll());
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
      }
     
     public function about(){
@@ -17,6 +30,7 @@ class HomeController {
     public function upload(){
         var_dump($_FILES);
         move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/' . $_FILES['image']['name']);
+        header('Location: /');
     }
 }
 
