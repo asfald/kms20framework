@@ -16,7 +16,8 @@ class HomeController {
              // * = select all, real 13 id title body asemel
 
          $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
-         var_dump($stmt->fetchAll());
+        $results = $stmt->fetchAll();
+         var_dump( $results[0]->capitalizedTitle() );
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
