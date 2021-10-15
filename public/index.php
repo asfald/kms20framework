@@ -1,9 +1,11 @@
 <?php
 
-spl_autoload_register(function ($class) {
-    $class = str_replace('App\\', '', $class);
-    require __DIR__ . "/../src/$class.php";
-});
+//spl_autoload_register(function ($class) {
+//    $class = str_replace('App\\', '', $class);
+//    require __DIR__ . "/../src/$class.php";
+//});
+
+require __DIR__ . "/../vendor/autoload.php";
 
 require __DIR__ . "/../routes.php";
 require __DIR__ . "/../helpers.php";
