@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+
+use App\DB;
 use App\Models\Article;
 use PDO;
 use PDOException;
@@ -8,16 +10,9 @@ use PDOException;
 class HomeController {
     public function index(){
         try {
-            $conn = new PDO("sqlite:" . __DIR__ . '/../../database.sqlite');
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("SELECT * FROM articles");
-            $stmt->execute();
-
-            // set the resulting array to associative
-            $stmt->setFetchMode(PDO::FETCH_CLASS, Article::class);
-            $results = $stmt->fetchAll();
-            var_dump( $results[0]->capitalizedTitle() );
+            $db = new DB(__DIR__ . '/../../database.sqlite');
+            $results = $db->select(['id', 'title'], 'articles');
+            var_dump($results);
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
