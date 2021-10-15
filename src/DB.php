@@ -20,13 +20,11 @@ class DB
         $stmt->execute();
 
         // set the resulting array to associative
-
         if($className){
             $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
-
-        }else{
+        } else {
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
         }
-                       return $stmt->fetchAll();
+        return $stmt->fetchAll();
     }
 }

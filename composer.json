@@ -1,5 +1,5 @@
 {
-    "name": "kms-20-521/kms20framework",
+    "name": "kaspar.suursalu/framework",
     "type": "project",
     "license": "WTFPL",
     "autoload": {
@@ -9,8 +9,8 @@
     },
     "authors": [
         {
-            "name": "Rain",
-            "email": "rain.oselin@tptlive.ee"
+            "name": "Kaspar Martin Suursalu",
+            "email": "kasparsu@gmail.com"
         }
     ],
     "require": {
