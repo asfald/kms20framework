@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\DB;
 use App\Models\Article;
+use GuzzleHttp\Client;
 use PDO;
 use PDOException;
 
@@ -16,10 +17,13 @@ class HomeController {
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-        //catch (\Exception $e) {
-//            echo "Some other issue";
-//        }
-//        throw new \Exception();
+
+        $client = new Client();
+        $response = $client->get('http://api.icndb.com/jokes/random');
+            $json = $response->getBody()->getContents();
+            $joke = json_decode($json);
+            var_dump($joke->value->joke);
+        }
     }
     
     public function about(){

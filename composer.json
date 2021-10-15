@@ -1,0 +1,19 @@
+{
+    "name": "kms-20-521/kms20framework",
+    "type": "project",
+    "license": "WTFPL",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rain",
+            "email": "rain.oselin@tptlive.ee"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    }
+}

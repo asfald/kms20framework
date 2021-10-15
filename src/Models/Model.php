@@ -10,6 +10,7 @@ class Model
 
     public static function all(){
         $db = new DB(__DIR__ . '/../../database.sqlite');
-        return $db->select(['*'], self::$tableName, self::class);
+        var_dump(static::class,static::$tableName);
+        return $db->select(['*'], static::$tableName, static::class);
     }
 }
