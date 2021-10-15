@@ -1,5 +1,4 @@
-
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
+<ul>
+    <li><a href="/">home</a></li>
+    <li><a href="/about">about</a></li>
+</ul> 

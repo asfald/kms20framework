@@ -1,7 +1,4 @@
-<?php $title="About Us"; ?>
-
+<?php $title="About us"; ?>
 <?php include __DIR__ . "/partials/header.php" ?>
-
-<h1>About!</h1>
-
-<?php include __DIR__ . "/partials/footer.php" ?>
+About us!
+<?php include __DIR__ . "./partials/footer.php" ?>
