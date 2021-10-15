@@ -10,8 +10,8 @@ use PDOException;
 class HomeController {
     public function index(){
         try {
-            $db = new DB(__DIR__ . '/../../database.sqlite');
-            $results = $db->select(['id', 'title'], 'articles');
+
+            $results = Article::all();
             var_dump($results);
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
