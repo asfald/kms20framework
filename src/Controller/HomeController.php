@@ -4,18 +4,23 @@ namespace App\Controller;
 
 use App\DB;
 use App\Models\Article;
+use GuzzleHttp\Client;
 use PDO;
 use PDOException;
 
 class HomeController {
     public function index(){
         try {
-            $db = new DB(__DIR__ . '/../../database.sqlite');
-            $results = $db->select(['id', 'title'], 'articles');
+            $results = Article::all();
             var_dump($results);
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
+        $client = new Client();
+        $response = $client->get('http://api.icndb.com/jokes/random');
+        $json = $response->getBody()->getContents();
+        $joke = json_decode($json);
+        var_dump($joke->value->joke);
         //catch (\Exception $e) {
 //            echo "Some other issue";
 //        }
